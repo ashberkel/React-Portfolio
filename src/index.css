@@ -1,0 +1,135 @@
+:root {
+  --accent: #310FBA;
+  cursor: crosshair;
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: dark light;
+  color: white;
+  background-color: var(--accent);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.App{
+border: 1px solid white;
+height: 94vh;
+width: 96vw;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+padding: .5vmax;
+}
+
+body {
+overflow: hidden;
+}
+
+#top-left {
+  position:relative;
+  float: left;
+}
+#top-right {
+  position:relative;
+  float: right;
+}
+
+a {
+  font-family: "Jersey 20", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.4em;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: right;
+  color:white;
+  background: linear-gradient(to top, var(--accent) 50%, white 50%) bottom;
+  background-size: 100% 300%;
+  transition: .25s ease-in;
+  margin: 0 2%;
+}
+
+a:hover {
+  color:var(--accent);
+  background-position: top;
+}
+
+h1 {
+  font-family: "Ranchers", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 7em;
+  text-transform: uppercase;
+  letter-spacing: -.06em;
+  line-height: .8;
+  width: 40%;
+  margin: 0 auto;
+  padding-top:1.5%;
+  animation: h1-shake 6s infinite;
+}
+#smaller{
+  font-size: .5em;
+}
+
+@keyframes h1-shake {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(3px, 3px) rotate(2deg); }
+  50% { transform: translate(0, 0) rotate(0deg); }
+  75% { transform: translate(-3px, 3px) rotate(-2deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+#eyeball {
+  position: relative;
+  top: -25%;
+  left: 35%;
+  opacity: 70%;
+  z-index: -1;
+}
+#eyeball #pupil{
+  fill: var(--accent);
+  transform: translate(140px, 180px);
+  animation: eye-move 15s infinite ease-in-out;
+}
+#lid-top, #lid-bottom {
+      fill: var(--accent);
+}
+
+#lid-top {
+      transform-origin: bottom center;
+      animation: blink 20s infinite;
+    }
+
+#lid-bottom {
+      transform-origin: top center;
+      animation: blink 20s infinite;
+      animation-delay: 0.1s;
+    }
+
+@keyframes eye-move {
+  0%, 30%, 75%, 100% { transform: translate(140px, 220px); }
+  33%, 40% { transform: translate(50px, 130px); }
+  43% { transform: translate(70px, 130px); }
+  53% { transform: translate(140px, 120px); }
+  57%, 70% { transform: translate(230px, 130px); }
+}
+
+@keyframes blink {
+0%, 33% { transform: scaleY(0); }
+
+  /* blink phase */
+  38% { transform: scaleY(2); }
+  43%, 47% { transform: scaleY(0); }
+
+  /* narrowed gaze / slight movement */
+  60%, 80% { transform: scaleY(0.3); }
+
+  /* breathing room at end: last ~17% (5s idle from 12.5s–15s) */
+  100% { transform: scaleY(0); }
+}
