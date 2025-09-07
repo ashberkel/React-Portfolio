@@ -1,5 +1,6 @@
 :root {
-  --accent: #310FBA;
+  --accent: #3c16d4;
+  --accent: #000000;
   cursor: crosshair;
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -13,6 +14,16 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: white; 
+  color: var(--accent);
+}
+/* For older Firefox versions, the -moz- prefix is required */
+::-moz-selection {
+  background-color: white;
+  color: var(--accent);
 }
 
 .App{
@@ -65,16 +76,52 @@ h1 {
   font-weight: 400;
   font-style: normal;
   font-size: 7em;
+  text-align: center;
   text-transform: uppercase;
-  letter-spacing: -.06em;
-  line-height: .8;
-  width: 40%;
-  margin: 0 auto;
-  padding-top:1.5%;
-  animation: h1-shake 6s infinite;
+  letter-spacing: -.04em;
+  line-height: .2em;
+  margin-bottom:15px;
+}
+h2 {
+  font-family: "Jersey 20", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2em;
+  text-align: center;
+  letter-spacing: -.04em;
+  line-height: .2em;
+  margin-bottom:0;
+}
+p {
+  font-family: "Inclusive Sans", sans-serif;
+  font-size: 1.25em;
+  text-align: center;
+  line-height: .9em;
+}
+.textShake {
+  animation: h1-shake 8s infinite;
 }
 #smaller{
   font-size: .5em;
+}
+
+#eyeballDiv{
+  z-index:99;
+  position:absolute;
+  top: 8%;
+  left: 34.7%;
+  padding: 5px;
+  padding-top: 12px;
+  background-color: white;
+  color:black;
+  font-family: "Inclusive Sans", sans-serif;
+  font-size: 1.25em;
+  text-align: center;
+  border-radius: 100%;
+  width:356px;
+  height:539px;
+  opacity: 70%;
+
 }
 
 @keyframes h1-shake {
@@ -87,7 +134,7 @@ h1 {
 
 #eyeball {
   position: relative;
-  top: -25%;
+  top: -12%;
   left: 35%;
   opacity: 70%;
   z-index: -1;
