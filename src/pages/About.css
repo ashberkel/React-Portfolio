@@ -1,0 +1,4 @@
+:root {
+    --accent: #f31369;
+    transition: background-color 0.5s ease-in-out;
+}
