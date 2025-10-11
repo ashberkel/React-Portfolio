@@ -97,7 +97,7 @@ p {
   font-size: 1em;
   text-align: center;
   line-height: .9em;
-  text-shadow: 1.5px 1.5px #000000;
+  text-shadow: 1.5px 1.5px var(--accent);
 }
 .textShake {
   animation: h1-shake 8s infinite;

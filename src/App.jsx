@@ -1,18 +1,25 @@
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { useEffect, useState } from "react";
 import Home from './pages/Home.jsx';
 import Projects from './pages/Projects.jsx';
 import About from './pages/About.jsx';
 import './index.css';
 
 export default function App() {
+  const [accent, setAccent] = useState("#000000");
+
+    useEffect(() => {
+    document.documentElement.style.setProperty("--accent", accent);
+  }, [accent]);
+  
   return (
     <BrowserRouter>
       {/* Navigation */}
       <div className="App">
       <nav id="top-right">
-        <Link to="/">Home</Link> |{" "}
-        <Link to="/projects">Projects</Link> |{" "}
-        <Link to="/about">About</Link>{" "}
+          <Link onClick={() => setAccent("#000000")} to="/">Home</Link> |{" "}
+          <Link onClick={() => setAccent("#3c16d4")} to="/projects">Projects</Link> |{" "}
+          <Link onClick={() => setAccent("#e71075")} to="/about">About</Link>{" "}
       </nav>
       <div class="eyeballDiv"><svg id="eyeball" width="356" height="539" viewBox="0 0 356 539" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M178 1C226.711 1 270.936 30.8939 303.03 79.4863C335.119 128.071 355 195.248 355 269.5C355 343.752 335.119 410.929 303.03 459.514C270.936 508.106 226.711 538 178 538C129.289 538 85.0642 508.106 52.9697 459.514C20.8806 410.929 1 343.752 1 269.5C1 195.248 20.8806 128.071 52.9697 79.4863C85.0642 30.8939 129.289 1 178 1Z" fill="white"/>
