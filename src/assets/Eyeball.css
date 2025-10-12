@@ -1,0 +1,97 @@
+#eyeball {
+  position: absolute;
+  top: 50px;
+  left: 37.3%;
+  opacity: 70%;
+  z-index: -1;
+}
+
+#lid-top, #lid-bottom {
+      fill: var(--accent);
+}
+
+#eyeball #pupil{
+  fill: var(--accent);
+  transform: translate(140px, 180px);
+}
+
+.eyeball--home #eyeball #pupil{
+  animation: homePupMove 15s infinite ease-in-out;
+}
+
+.eyeball--home #lid-top {
+      transform-origin: bottom center;
+      animation: quickBlink 1s both, homeBlink 20s infinite;
+      animation-delay: 0s, 4s;
+    }
+
+.eyeball--home #lid-bottom {
+      transform-origin: top center;
+      animation: quickBlink 1s both, homeBlink 20s infinite;
+      animation-delay: 0s, 4s;
+    }
+
+@keyframes homePupMove {
+  0%, 30%, 75%, 100% { transform: translate(140px, 220px); }
+  33%, 40% { transform: translate(50px, 130px); }
+  43% { transform: translate(70px, 130px); }
+  53% { transform: translate(240px, 120px); }
+  57%, 70% { transform: translate(210px, 310px); }
+}
+
+@keyframes homeBlink {
+0%, 33% { transform: scaleY(0); }
+
+  /* blink phase */
+  38% { transform: scaleY(2); }
+  43%, 47% { transform: scaleY(0); }
+
+  /* narrowed gaze / slight movement */
+  60%, 80% { transform: scaleY(0.3); }
+
+  /* breathing room at end: last ~17% (5s idle from 12.5s–15s) */
+  100% { transform: scaleY(0); }
+}
+
+.eyeball--about #lid-top {
+      transform-origin: bottom center;
+      animation: quickBlink 1s both;
+    }
+
+.eyeball--about #lid-bottom {
+      transform-origin: top center;
+      animation: quickBlink 1s both;
+      animation-delay: 0.1s;
+    }
+
+.eyeball--about #eyeball #pupil{
+    fill: none;
+}
+
+.eyeball--project #lid-top {
+      transform-origin: bottom center;
+      animation: quickBlink 1s both;
+    }
+
+.eyeball--project #lid-bottom {
+      transform-origin: top center;
+      animation: quickBlink 1s both;
+      animation-delay: 0.1s;
+    }
+
+.eyeball--project #eyeball {
+  fill: none;
+}
+
+.eyeball--project #eyeball #pupil{
+    fill: none;
+}
+@keyframes quickBlink {
+0%, 100% { transform: scaleY(0); }
+50% { transform: scaleY(2); }
+}
+
+@keyframes projFill {
+  0%, 90% {fill: yellow;}
+  100% {fill: green;}
+}

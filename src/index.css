@@ -7,7 +7,6 @@
   color-scheme: dark light;
   color: white;
   background-color: var(--accent);
-  transition: background-color 0.5s ease-in-out;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -18,6 +17,18 @@
   background-color: white; 
   color: var(--accent);
 }
+
+*,
+*::before,
+*::after {
+  transition: 
+    background-color 0.6s ease-in-out,
+    color 0.6s ease-in-out,
+    border-color 0.6s ease-in-out,
+    fill 0.6s ease-in-out,
+    stroke 0.6s ease-in-out;
+}
+
 /* For older Firefox versions, the -moz- prefix is required */
 ::-moz-selection {
   background-color: white;
@@ -46,6 +57,15 @@ overflow: hidden;
 #top-right {
   position:relative;
   float: right;
+  right: -25px;
+  width:250px;
+}
+
+#bottom-right {
+  position:absolute;
+  text-align: right;
+  right: 5px;
+  bottom: 0px;
   width:250px;
 }
 
@@ -60,6 +80,7 @@ a {
   text-align: right;
   color:white;
   background: linear-gradient(to top, var(--accent) 50%, white 50%) bottom;
+  transition: background-color 0.5s ease-in-out;
   background-size: 100% 300%;
   transition: .25s ease-in;
   margin: 0 2%;
@@ -67,6 +88,7 @@ a {
 
 a:hover {
   color:var(--accent);
+  transition: color 0.5s ease-in-out;
   background-position: top;
 }
 
@@ -74,91 +96,35 @@ h1 {
   font-family: "Ranchers", sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 7em;
-  text-align: center;
+  font-size: 6.5em;
+  text-align: left;
   text-transform: uppercase;
   letter-spacing: -.04em;
   line-height: .6em;
-  margin-top:45px;
+  margin-top:35px;
   margin-bottom:15px;
+  margin-left:20px;
 }
+
 h2 {
   font-family: "Jersey 20", sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 1.7em;
-  text-align: center;
+  text-align: left;
   letter-spacing: -.04em;
   line-height: .2em;
   margin-bottom:0;
+  margin-left:20px;
 }
+
 p {
   font-family: "Inclusive Sans", sans-serif;
-  font-size: 1em;
+  font-size: 1.3em;
   text-align: center;
-  line-height: .9em;
-  text-shadow: 1.5px 1.5px var(--accent);
+  line-height: 1.2em;
 }
-.textShake {
-  animation: h1-shake 8s infinite;
-}
+
 #smaller{
   font-size: .5em;
-}
-
-@keyframes h1-shake {
-  0% { transform: translate(0, 0) rotate(0deg); }
-  25% { transform: translate(3px, 3px) rotate(2deg); }
-  50% { transform: translate(0, 0) rotate(0deg); }
-  75% { transform: translate(-3px, 3px) rotate(-2deg); }
-  100% { transform: translate(0, 0) rotate(0deg); }
-}
-
-#eyeball {
-  position: relative;
-  top: 50px;
-  left: 35%;
-  opacity: 70%;
-  z-index: -1;
-}
-#eyeball #pupil{
-  fill: var(--accent);
-  transform: translate(140px, 180px);
-  animation: eye-move 15s infinite ease-in-out;
-}
-#lid-top, #lid-bottom {
-      fill: var(--accent);
-}
-
-#lid-top {
-      transform-origin: bottom center;
-      animation: blink 20s infinite;
-    }
-
-#lid-bottom {
-      transform-origin: top center;
-      animation: blink 20s infinite;
-      animation-delay: 0.1s;
-    }
-
-@keyframes eye-move {
-  0%, 30%, 75%, 100% { transform: translate(140px, 220px); }
-  33%, 40% { transform: translate(50px, 130px); }
-  43% { transform: translate(70px, 130px); }
-  53% { transform: translate(140px, 120px); }
-  57%, 70% { transform: translate(230px, 130px); }
-}
-
-@keyframes blink {
-0%, 33% { transform: scaleY(0); }
-
-  /* blink phase */
-  38% { transform: scaleY(2); }
-  43%, 47% { transform: scaleY(0); }
-
-  /* narrowed gaze / slight movement */
-  60%, 80% { transform: scaleY(0.3); }
-
-  /* breathing room at end: last ~17% (5s idle from 12.5s–15s) */
-  100% { transform: scaleY(0); }
 }

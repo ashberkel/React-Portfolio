@@ -1,17 +1,64 @@
-import "./about.css"
+import { useEffect, useState } from "react";
+import "./About.css"
+import Eyeball from "../assets/Eyeball";
 
 export default function About() {
-  function numGen() {
-  return Math.floor(Math.random() * 6);
-}
+  
+let facts = ["I still have my wisdom teeth.", "I can't tie a cherry stem with my mouth.", "The Neverhood is my favorite childhood game.", "I was born in Misawa, Japan.", "I own a melodica."];
+const [factIndex] = useState(() => Math.floor(Math.random() * facts.length));
 
-let facts = ["and I still have my wisdom teeth.", "and I am a cat person.", "and I can't tie a cherry stem with my mouth.", "and The Neverhood is my favorite childhood game.", "and I was born in Misawa, Japan.", "and I own a melodica."];
 
-const aboutMe = "How much<br />can one say in the<br />space of an eyeball? Ever<br />since I could hold a pencil,<br />the urge to create was there.<br />It evolved into a solid Graphic<br />Design career...but nowadays UX<br />and Software Engineering are my fixation. Basically, if I get to make something cool and impactful, I'm happiest. In my spare time, I enjoy video games, puzzles, hiking, studying ASL, and trying new<br />foods. Also, yes, I am a cat<br />person. If you also like<br /> cool and impactful<br />things, let's talk!<br />-Ash"
+const [displayedText, setDisplayedText] = useState("");
+const aboutMe = `How much can one
+say in the space
+of an eyeball? Ever
+since I could hold a pencil,
+the urge to create was there.
+It evolved into a solid Graphic
+Design career...but nowadays
+UX and Software Engineering
+are my fixation. Basically, if I
+get to make something cool
+and impactful, I'm happiest.
+In my spare time, I enjoy
+video games, puzzles, hiking,
+studying ASL, and trying new
+foods. Also, yes, I am a cat
+person. If you also like
+cool and impactful
+things, let's talk!
+-Ash`
+
+useEffect(() => {
+    let index = -1;
+    const speed = 60; 
+    const delay = 1500;
+    let intervalId;
+   const timeoutId = setTimeout(() => {
+    intervalId = setInterval(() => {
+      if (index < aboutMe.length - 1) {
+        index += 1; 
+        setDisplayedText(prev => prev + aboutMe[index]); // append current
+      } else {
+        clearInterval(intervalId);
+      }
+    }, speed);
+    }, delay);
+    
+    return () => {clearTimeout(timeoutId);clearInterval(intervalId);  };
+}, []);
 
   return (
   <main>
     <h1>About Me</h1>
-    <h2>{facts[numGen()]}</h2>
+    <h2>{facts[factIndex]}</h2>
+    <div className="pTyped">
+        <div className="typeBox">
+        <p className="typeText">
+          {displayedText}
+          <span className="caret" />
+        </p></div>
+      </div>
+    <Eyeball variant="about" />
     </main>);
 }
