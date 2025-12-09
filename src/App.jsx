@@ -26,14 +26,13 @@ export default function App() {
         <a href ="https://bsky.app/profile/abcreates.bsky.social" target="_blank"> Bluesky</a>|
         <a href ="mailto:ashberkel@gmail.com">Email</a> 
         </nav>
-      </div>
-
       {/* Routes */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/about" element={<About />} />
       </Routes>
+          </div>
     </BrowserRouter>
   );
 }

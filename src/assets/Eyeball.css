@@ -1,7 +1,9 @@
 #eyeball {
   position: absolute;
-  top: 50px;
-  left: 37.3%;
+  top: 8%;
+  left: 37.3%; /* fill the container’s width */
+  height: auto;  /* keep aspect ratio based on viewBox */
+  max-height: 90%; /* optional: don’t grow bigger than original */
   opacity: 70%;
   z-index: -1;
 }
