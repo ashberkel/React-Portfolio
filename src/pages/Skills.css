@@ -1,0 +1,17 @@
+body {
+  margin: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+#bounceBox {
+  position: relative;
+  height: 90vh;
+  width: 100vw;
+}
+
+.keywords {
+    padding: 0px 7px 7px 7px;
+    font-size: 35px;
+    color: #83c1a9ff;
+}

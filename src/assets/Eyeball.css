@@ -6,6 +6,9 @@
   max-height: 90%; /* optional: don’t grow bigger than original */
   opacity: 70%;
   z-index: -1;
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 0.08s linear;
 }
 
 #lid-top, #lid-bottom {
@@ -70,16 +73,26 @@
     fill: none;
 }
 
-.eyeball--project #lid-top {
-      transform-origin: bottom center;
-      animation: quickBlink 1s both;
-    }
+.eyeball--project #lid-top, .eyeball--skills #lid-top { 
+  transform-origin: bottom center;
+  animation: quickBlink 1s both;
+  animation-delay: 0.1s;
+}
 
-.eyeball--project #lid-bottom {
-      transform-origin: top center;
-      animation: quickBlink 1s both;
-      animation-delay: 0.1s;
-    }
+.eyeball--project #lid-bottom, .eyeball--skills #lid-bottom {
+  transform-origin: top center;
+  animation: quickBlink 1s both;
+}
+
+.eyeball--project.eyeball--replay #lid-top {
+  transform-origin: top center;
+  animation: quickBlinkReplay 1s both;
+  animation-delay: 0.1s;
+}
+
+.eyeball--project.eyeball--replay #lid-bottom {
+  animation: quickBlinkReplay 1s both;
+}
 
 .eyeball--project #eyeball {
   fill: none;
@@ -90,10 +103,10 @@
 }
 @keyframes quickBlink {
 0%, 100% { transform: scaleY(0); }
-50% { transform: scaleY(2); }
+45% { transform: scaleY(2); }
 }
 
-@keyframes projFill {
-  0%, 90% {fill: yellow;}
-  100% {fill: green;}
+@keyframes quickBlinkReplay {
+0%, 100% { transform: scaleY(0); }
+45% { transform: scaleY(2); }
 }

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Home from './pages/Home.jsx';
 import Projects from './pages/Projects.jsx';
 import About from './pages/About.jsx';
+import Skills from './pages/Skills.jsx';
 import './index.css';
 
 export default function App() {
@@ -19,17 +20,20 @@ export default function App() {
       <nav id="top-right">
           <Link onClick={() => setAccent("#000000")} to="/">Home</Link>|
           <Link onClick={() => setAccent("#3c16d4")} to="/projects">Projects</Link>|
+          <Link onClick={() => setAccent("#2ea477ff")} to="/skills">Skills</Link>|
           <Link onClick={() => setAccent("#e71075")} to="/about">About</Link>
       </nav>
       <nav id="bottom-right">
         <a href ="https://www.linkedin.com/in/ashleeberkel" target="_blank">LinkedIn</a>| 
         <a href ="https://bsky.app/profile/abcreates.bsky.social" target="_blank"> Bluesky</a>|
+        <a href ="https://github.com/ashberkel" target="_blank"> GitHub</a>|
         <a href ="mailto:ashberkel@gmail.com">Email</a> 
         </nav>
       {/* Routes */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/projects" element={<Projects />} />
+        <Route path="/skills" element={<Skills />} />
         <Route path="/about" element={<About />} />
       </Routes>
           </div>

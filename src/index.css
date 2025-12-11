@@ -59,8 +59,7 @@ overflow: hidden;
 #top-right {
   position:relative;
   float: right;
-  right: -25px;
-  width:250px;
+  width:310px;
 }
 
 #bottom-right {
@@ -68,7 +67,7 @@ overflow: hidden;
   text-align: right;
   right: 5px;
   bottom: 5px;
-  width:250px;
+  width:450px;
 }
 
 a {
@@ -115,7 +114,7 @@ h2 {
   text-align: left;
   letter-spacing: -.04em;
   line-height: .2em;
-  margin-top: 2vmin;
+  margin-top: 3.5vmin;
   margin-bottom: 1vmin;
 }
 
@@ -124,6 +123,7 @@ p {
   font-size: 1.3em;
   text-align: center;
   line-height: 1.2em;
+  margin-top: 3.5vmin;
 }
 
 #smaller{
