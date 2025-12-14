@@ -24,8 +24,8 @@ export default function App() {
           <Link onClick={() => setAccent("#e71075")} to="/about">About</Link>
       </nav>
       <nav id="bottom-right">
-        <a href ="https://www.linkedin.com/in/ashleeberkel" target="_blank">LinkedIn</a>| 
         <a href ="https://bsky.app/profile/abcreates.bsky.social" target="_blank"> Bluesky</a>|
+        <a href ="https://www.linkedin.com/in/ashleeberkel" target="_blank">LinkedIn</a>| 
         <a href ="https://github.com/ashberkel" target="_blank"> GitHub</a>|
         <a href ="mailto:ashberkel@gmail.com">Email</a> 
         </nav>

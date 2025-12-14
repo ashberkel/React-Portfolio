@@ -23,8 +23,9 @@ and impactful, I'm happiest.
 In my spare time, I enjoy
 video games, puzzles, hiking,
 studying ASL, and trying new
-foods. If you also like
-over cool and impactful
+foods. Finally...I am a cat
+person. If you also like
+cool and impactful
 things, let's talk!
 -Ash`
 

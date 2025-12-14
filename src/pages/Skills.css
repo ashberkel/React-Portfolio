@@ -6,12 +6,22 @@ body {
 
 #bounceBox {
   position: relative;
+  top: -10vh;
+  left: -3vw;
   height: 90vh;
-  width: 100vw;
+  width: 102vw;
 }
 
 .keywords {
-    padding: 0px 7px 7px 7px;
-    font-size: 35px;
+    padding: 0% 1% 1% 1%;
+    font-size: 50em;
     color: #83c1a9ff;
+    white-space: nowrap;
+    hyphens: none;
+    word-break: keep-all;
+}
+
+#pupil {
+  transform-box: fill-box;
+  transform-origin: center;
 }

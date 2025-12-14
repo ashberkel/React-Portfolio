@@ -10,47 +10,65 @@ export default function Eyeball({
   const wrapperRef = useRef(null);
   const pupilRef = useRef(null);
 
-  useEffect(() => {
-    if (!trackCursor) return; // only do this for skills
+useEffect(() => {
+  if (!trackCursor || !pupilRef.current || !wrapperRef.current) return;
 
-function handleMove(e) {
-  if (!wrapperRef.current || !pupilRef.current) return;
+  const svg = wrapperRef.current;
+  const pupil = pupilRef.current;
 
-  const rect = wrapperRef.current.getBoundingClientRect();
-  const centerX = rect.left + rect.width / 2;
-  const centerY = rect.top + rect.height / 2;
+  const eyeCenter = { x: 178, y: 269.5 }; // center based on your path math-ish
+  const maxOffset =110; // how far pupil can move inside the eye
 
-  // vector from eye center to mouse
-  const dx = e.clientX - centerX;
-  const dy = e.clientY - centerY;
+  let targetX = eyeCenter.x;
+  let targetY = eyeCenter.y;
+  let frameId = null;
 
-  // how far the pupil is allowed to move, in pixels
-  const maxOffset = 70; // try 50–80 and adjust
+  const clientToSvg = (clientX, clientY) => {
+    const pt = svg.createSVGPoint();
+    pt.x = clientX;
+    pt.y = clientY;
+    const ctm = svg.getScreenCTM();
+    return ctm ? pt.matrixTransform(ctm.inverse()) : eyeCenter;
+  };
 
-  const dist = Math.hypot(dx, dy) || 1;
+  const onMove = (e) => {
+    const p = clientToSvg(e.clientX, e.clientY);
 
-  // start with “follow exactly”
-  let offsetX = dx;
-  let offsetY = dy;
+    // vector from eye center to mouse (in SVG units)
+    let dx = p.x - eyeCenter.x;
+    let dy = p.y - eyeCenter.y;
 
-  // if mouse is farther away than the leash, clamp to a circle
-  if (dist > maxOffset) {
-    const scale = maxOffset / dist;
-    offsetX *= scale;
-    offsetY *= scale;
-  }
+    // clamp to a circle
+    const dist = Math.hypot(dx, dy) || 1;
+    if (dist > maxOffset) {
+      const s = maxOffset / dist;
+      dx *= s;
+      dy *= s;
+    }
 
-  // optional base offset if the pupil isn't visually centered
-  const baseX = 150; // tweak like +5 or -10 etc.
-  const baseY = 200;
+    targetX = eyeCenter.x + dx;
+    targetY = eyeCenter.y + dy;
+  };
 
-  pupilRef.current.style.transform =
-    `translate(${baseX + offsetX}px, ${baseY + offsetY}px)`;
-}
+  // measure pupil's original center so "centered" means centered
+  const bb = pupil.getBBox();
+  const pupilCenter0 = { x: bb.x + bb.width / 2, y: bb.y + bb.height / 2 };
 
-    window.addEventListener("mousemove", handleMove);
-    return () => window.removeEventListener("mousemove", handleMove);
-  }, [trackCursor]);
+  const tick = () => {
+    const tx = targetX - pupilCenter0.x;
+    const ty = targetY - pupilCenter0.y;
+    pupil.style.transform = `translate(${tx}px, ${ty}px)`;
+    frameId = requestAnimationFrame(tick);
+  };
+
+  window.addEventListener("mousemove", onMove);
+  frameId = requestAnimationFrame(tick);
+
+  return () => {
+    window.removeEventListener("mousemove", onMove);
+    if (frameId) cancelAnimationFrame(frameId);
+  };
+}, [trackCursor]);
 
   return (
     <main>

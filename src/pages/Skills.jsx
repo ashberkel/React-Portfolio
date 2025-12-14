@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "./Skills.css"
 import Eyeball from "../assets/Eyeball";
 
