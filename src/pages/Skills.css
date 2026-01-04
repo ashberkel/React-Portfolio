@@ -11,7 +11,15 @@ body {
 }
 
 .keywords {
-    padding: 0px 7px 7px 7px;
-    font-size: 35px;
-    color: #83c1a9ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  padding: 0px 10px 0pc 10px;
+}
+
+.keywords h2 {
+  font-size: 35px;
+  color: #83c1a9ff;
+  margin-top: 5px;
 }

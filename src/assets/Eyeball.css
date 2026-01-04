@@ -11,8 +11,9 @@
   transition: transform 0.08s linear;
 }
 
-#lid-top, #lid-bottom {
-      fill: var(--accent);
+#lid-top,
+#lid-bottom {
+  fill: var(--accent);
 }
 
 #eyeball #pupil{

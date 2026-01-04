@@ -14,6 +14,7 @@ p {
 }
 
 .galNav {
+  z-index: 101;
   position: absolute;
   top: 45%;
   left: 70%;

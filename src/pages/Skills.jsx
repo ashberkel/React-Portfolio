@@ -4,7 +4,7 @@ import Eyeball from "../assets/Eyeball";
 
 export default function Skills() {
 useEffect(() => {
-  const speed = 1;
+  const speed = .5;
   const bounceBox = document.getElementById("bounceBox");
   if (!bounceBox) return;
   const allKeywords = bounceBox.querySelectorAll(".keywords");

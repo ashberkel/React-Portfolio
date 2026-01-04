@@ -53,7 +53,6 @@ function handleMove(e) {
   }, [trackCursor]);
 
   return (
-    <main>
       <div
         className={`eyeball eyeball--${variant} ${
           animate ? "eyeball--replay" : ""
@@ -109,6 +108,5 @@ function handleMove(e) {
           />
         </svg>
       </div>
-    </main>
   );
 }

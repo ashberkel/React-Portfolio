@@ -9,8 +9,9 @@ h1 {
 }
 
 .pTyped {
-  margin-top: 20px;
-  margin-left: 39.5%;
+  position:relative;
+  margin-top: -4%;
+  margin-left: 39%;
   color: var(--accent);
 }
 
@@ -21,6 +22,7 @@ h1 {
 
 .typeText {
   font-size: 1.7em;
+  width: 400px;
 }
 
 .caret {

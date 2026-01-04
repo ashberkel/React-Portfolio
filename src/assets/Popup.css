@@ -1,0 +1,18 @@
+.popup {
+    position: fixed;
+    top: 15%;
+    left: 23%;
+    z-index: 9999;
+    display: grid;
+    place-items: center;
+    background-color:rgb(22, 0, 53);
+    box-shadow: 5px;
+    height: 600px;
+    width: 900px;
+    margin: auto;
+    padding: 25px;
+}
+
+    .popup h1 {
+    color:red;
+}

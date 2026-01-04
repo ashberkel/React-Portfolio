@@ -9,7 +9,8 @@ const [factIndex] = useState(() => Math.floor(Math.random() * facts.length));
 
 
 const [displayedText, setDisplayedText] = useState("");
-const aboutMe = `How much can one
+const aboutMe = `Hi there.
+How much can one
 say in the space
 of an eyeball? Ever
 since I could hold a pencil,
