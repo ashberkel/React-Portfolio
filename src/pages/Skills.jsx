@@ -1,13 +1,28 @@
-import { useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./Skills.css"
 import Eyeball from "../assets/Eyeball";
 
 export default function Skills() {
+const [isActive, setIsActive] = useState(true);
+const frameRef = useRef(null);
+
+
 useEffect(() => {
-  const speed = .5;
+  var speed = isActive ? .5 : 0;
   const bounceBox = document.getElementById("bounceBox");
   if (!bounceBox) return;
   const allKeywords = bounceBox.querySelectorAll(".keywords");
+
+  //BAIL OUT
+    if (!isActive) {
+    allKeywords.forEach(word => {
+      word.style.position = "";
+      word.style.left = "";
+      word.style.top = "";
+      word.style.transform = "";
+    });
+    return;
+  }
 
 const eachWord = Array.from(allKeywords).map((word) => {
   // initial styles
@@ -34,21 +49,22 @@ const eachWord = Array.from(allKeywords).map((word) => {
     prevColorIndex: 0,
     width,
     height,
-    paused: false, // 🔹 NEW
+    paused: isActive ? false : true, // 🔹 NEW
   };
 
   // 🔹 Hover: pause + grow
   word.addEventListener("mouseenter", () => {
     wordObj.paused = true;
     word.style.color = "white";
-    word.style.backgroundColor = "#153629ff"
+    word.style.backgroundColor = "#153629ff";
+    word.style.paddingBottom = "20px";
     word.style.transform = "scale(2)"; // grow a bit
   });
 
   // 🔹 Leave: unpause + reset size
   word.addEventListener("mouseleave", () => {
     wordObj.paused = false;
-    word.style.color = "#83c1a9ff"
+    word.style.color = ""
     word.style.backgroundColor = ""
     word.style.transform = "scale(1)"; // back to normal
   });
@@ -80,27 +96,30 @@ const eachWord = Array.from(allKeywords).map((word) => {
       wordObj.word.style.top = wordObj.y + "px";
     });
 
-    window.requestAnimationFrame(animate);
+    frameRef.current = window.requestAnimationFrame(animate);
   }
 
-  window.requestAnimationFrame(animate);
-});
+  frameRef.current = window.requestAnimationFrame(animate);
+  return () => window.cancelAnimationFrame(frameRef.current);
+}, [isActive]);
+
 
   return (
   <main>
     <h1>Skills</h1>
+    <h2><span id="madness" onClick={() => setIsActive(false)}>Simplify This Madness!</span></h2>
     <div id="bounceBox">
-        <div className="keywords"><h2>HTML5</h2></div>
-        <div className="keywords"><h2>JavaScript</h2></div>
-        <div className="keywords"><h2>Git</h2></div>
-        <div className="keywords"><h2>React.js</h2></div>
-        <div className="keywords"><h2>Figma</h2></div>
-        <div className="keywords"><h2>Version Control</h2></div>
-        <div className="keywords"><h2>Adobe Creative Suite</h2></div>
-        <div className="keywords"><h2>REST API</h2></div>
-        <div className="keywords"><h2>Visual Systems</h2></div>
-        <div className="keywords"><h2>UX Principles</h2></div>
-        <div className="keywords"><h2>a11y Focused Design</h2></div>
+        <div className={`keywords ${isActive ? "keywords" : "deactive"}`}><h2>HTML5</h2></div>
+        <div className={`keywords ${isActive ? "keywords" : "deactive"}`}><h2>JavaScript</h2></div>
+        <div className={`keywords ${isActive ? "keywords" : "deactive"}`}><h2>Git</h2></div>
+        <div className={`keywords ${isActive ? "keywords" : "deactive"}`}><h2>React.js</h2></div>
+        <div className={`keywords ${isActive ? "keywords" : "deactive"}`}><h2>Figma</h2></div>
+        <div className={`keywords ${isActive ? "keywords" : "deactive"}`}><h2>Version Control</h2></div>
+        <div className={`keywords ${isActive ? "keywords" : "deactive"}`}><h2>Adobe Creative Suite</h2></div>
+        <div className={`keywords ${isActive ? "keywords" : "deactive"}`}><h2>REST API</h2></div>
+        <div className={`keywords ${isActive ? "keywords" : "deactive"}`}><h2>Visual Systems</h2></div>
+        <div className={`keywords ${isActive ? "keywords" : "deactive"}`}><h2>UX Principles</h2></div>
+        <div className={`keywords ${isActive ? "keywords" : "deactive"}`}><h2>a11y Focused Design</h2></div>
     </div>
     <Eyeball variant="skills" trackCursor />
     </main>);
