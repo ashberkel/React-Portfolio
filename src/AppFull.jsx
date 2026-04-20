@@ -4,9 +4,10 @@ import Home from './pages/Home.jsx';
 import Projects from './pages/Projects.jsx';
 import About from './pages/About.jsx';
 import Skills from './pages/Skills.jsx';
-import './index.css';
+import SOTHM from './SOTHM.jsx';
+import './indexFull.css';
 
-export default function App() {
+export default function AppFull() {
   const [accent, setAccent] = useState("#000000");
 
     useEffect(() => {
@@ -35,6 +36,7 @@ export default function App() {
         <Route path="/projects" element={<Projects />} />
         <Route path="/skills" element={<Skills />} />
         <Route path="/about" element={<About />} />
+        <Route path="/SOTHM" element={<SOTHM />} />
       </Routes>
           </div>
     </BrowserRouter>

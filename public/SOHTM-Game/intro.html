@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Beginning Introduction</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Geostar&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Romanesco&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Romanesco&family=Victor+Mono:ital,wght@1,300&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+    ::-moz-selection
+    {
+        color: #301b10;
+        background: #e0d5bc;
+    }
+
+::selection {
+  color: #301b10;
+  background: #e0d5bc;
+}
+        body {
+            background-color: #e0d5bc;
+            color: #301b10;
+        }
+        #header {
+            margin: auto;
+            width: 99%;
+        }
+        h1 {
+            font-family: "Romanesco", serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-size: 157px;
+            transform: scaleY(0.4);
+            transform-origin: 0 0;
+            margin-top: -1%;
+            margin-bottom: -5%;
+            font-style: normal;
+            text-align: center;
+        }
+
+        h2 {
+            font-family: "Victor Mono", serif;
+            font-optical-sizing: auto;
+            font-weight: 600;
+            font-size: 18px;
+            letter-spacing: 11px;
+            font-style: normal;
+            text-transform: uppercase;
+            margin-top: -10.5%;
+            text-align: center;
+        }
+
+        hr
+        {
+            border: 1.5px solid #301b10;
+            padding:0px;
+        }
+
+        .content-container {
+            display: grid;
+            grid-template-columns: 33% auto auto;
+            padding: 0px 12px;
+            margin-top: 15px;
+            text-align:justify;
+
+        }
+
+        .content-container div {
+            border-left:1px solid black;
+            padding: 0 12px;
+            margin:0;
+        }
+        .content-container div:first-child {
+            border-left:none;
+        }
+
+        p {
+            font-family: "Cormorant Upright", serif;
+            font-weight: 400;
+            font-size: 18.5px;
+            line-height:108%;
+        }
+        #choices {
+            margin-top: 1px;
+            text-align: center;
+        }
+        span {
+            margin-top:10px;
+            padding-bottom:0px;
+            font-family: "Victor Mono", serif;
+            font-optical-sizing: auto;
+            text-transform: uppercase;
+            font-style: normal;
+            font-weight: 800;
+            font-size: 13px;
+        }
+        .nextPage:hover {
+            background-color: #e0d5bc;
+            border: 2px solid #301b10;
+            color: #301b10;
+            font-family: "Victor Mono", serif;
+            font-weight: 600;
+            font-size: 15px;
+            margin-bottom: 5px;
+        }
+        .nextPage {
+            background-color: #301b10;
+            border: 2px solid #e0d5bc;
+            color: #e0d5bc;
+            font-family: "Victor Mono", serif;
+            font-weight: 600;
+            font-size: 15px;
+            margin-bottom: 5px;
+        }
+    </style>
+    </head>
+<body>
+    <div id="header">
+        <h1>The Brass & Claw Chronicle</h1>
+        <h2>RAS Empress: The World's First Luxury Air Liner</h2>
+    </div>
+    <hr>
+    <div class="content-container">
+        <div>
+            <img style="width:95%;" src="images/AirshipEdit.jpg">
+            <p>Airships. Creaturekind is now well acquainted with the concept, yet nations have been locked in fierce competition to propel the technology forward; The aim for swifter, larger, and more reliable modes in conveyance is not just in the minds of fantasies anymore.
+            </p>
+        </div>
+        <div>
+            <p>Advanced steam power, alternative fuels, and even the tantalizing prospect of nuclear fission dominate the scientific discourse. The world is increasingly interconnected, and the ambition to lead and profit from the burgeoning notion of long-distance travel has ignited a veritable race to the skies, both figuratively and literally.
+            <br><br>
+            Someone has finally crossed the finish line.
+            Eastwyn, the crowning jewel of the Animal Kingdom, convened a press conference this past weekend to unveil a newly patented and enigmatic design:
+            <br><br>
+            <b>The Infinite Current.</b>
+            Accompanying this announcement is the revelation that they have clandestinely implemented this design for governmental purposes with notable success. This suggests that there is much more to their research than presented surface level.
+        </div>
+        <div>
+            <p>
+            To present this innovation to the public, they have crafted something surpassing the traditional airship, officially christened the<br><b>"RAS Empress"</b>. Were it not for the press witnessing the unveiling of this airliner, the statistics proclaimed might seem fantastical. The ship measures 600 feet in length, 80 feet in width, and nearly 50,000 long tons in weight—exclusive of the zeppelin that elevates this titanic vessel.
+            <br><br>
+            The Chief Scientist of the Infinite Current Project remarked upon the Empress: <i>"It is not every day one can claim the creation of history. Yet my team has revolutionized travel in future generations."</i>
+            </p>
+            <div id = "choices" style="background-color: #301b10; color:#e0d5bc">
+            <p>
+            <span>Which type of animal speaks to you? Make your choice to begin.</span>
+            </p>
+            <button class="nextPage" id="MCDog">Canine</button>
+            <button class="nextPage" id="MCCat">Feline</button>
+            <br>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    const buttons = document.getElementsByClassName("nextPage");
+    for (let i = 0; i < buttons.length; i++)
+    {
+        buttons[i].addEventListener("click", function()
+        {
+        const clickedID = this.id
+        localStorage.setItem("MCChoice", clickedID);
+        window.location.href = "scene.html";
+        });
+    };
+    </script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+:root {
+  --accent: #000000;
+  cursor: crosshair;
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: dark light;
+  color: white;
+  background-color: var(--accent);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: white; 
+  color: var(--accent);
+}
+
+/* For older Firefox versions, the -moz- prefix is required */
+::-moz-selection {
+  background-color: white;
+  color: var(--accent);
+}
+
+.App{
+border: 2px solid white;
+height: 94vh;
+width: 96vw;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+padding: .5vmax;
+}
+
+body {
+overflow: hidden;
+}
+
+#top-left {
+  position:relative;
+  float: left;
+  top: -1vmin;
+}
+
+#top-right {
+  position:relative;
+  float: right;
+  width:310px;
+}
+
+#bottom-right {
+  position:absolute;
+  text-align: right;
+  right: 5px;
+  bottom: 5px;
+  width:450px;
+}
+
+a {
+  font-family: "Jersey 20", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.2em;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: right;
+  color:white;
+  background: linear-gradient(to top, var(--accent) 50%, white 50%) bottom;
+  transition: background-color 0.5s ease-in-out;
+  background-size: 100% 300%;
+  transition: .25s ease-in;
+  margin: 0 2%;
+}
+
+a:hover {
+  color:var(--accent);
+  transition: color 0.5s ease-in-out;
+  background-position: top;
+}
+
+h1 {
+  font-family: "Ranchers", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 12vmin;
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: -.04em;
+  line-height: .6em;
+  margin-top: 3vmin;
+  margin-bottom: 2vmin;
+}
+
+h2 {
+  font-family: "Jersey 20", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 4vmin;
+  text-align: left;
+  letter-spacing: -.04em;
+  line-height: .2em;
+  margin-top: 3.5vmin;
+  margin-bottom: 1vmin;
+}
+
+p {
+  font-family: "Inclusive Sans", sans-serif;
+  font-size: 1.3em;
+  text-align: center;
+  line-height: 1.2em;
+  margin-top: 3.5vmin;
+}
+
+#smaller{
+  font-size: .5em;
+}

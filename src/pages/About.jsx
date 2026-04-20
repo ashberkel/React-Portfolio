@@ -52,6 +52,7 @@ useEffect(() => {
   <main>
     <h1>About Me</h1>
     <h2>{facts[factIndex]}</h2>
+    <div id= "aboutEye">
     <div className="pTyped">
         <div className="typeBox">
         <p className="typeText">
@@ -60,5 +61,6 @@ useEffect(() => {
         </p></div>
       </div>
     <Eyeball variant="about" />
+    </div>
     </main>);
 }

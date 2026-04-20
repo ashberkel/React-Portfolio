@@ -1,0 +1,173 @@
+/* styling for content containers*/
+
+#uiCont {
+    display: grid;
+    grid-template-columns: 825px 259px;
+    grid-template-rows: 425px 159px;
+    grid-template-areas: 'playView invBox' 'diaBox invBox';
+    position:absolute;
+}
+
+#playView, #invBox, #diaBox {
+  min-width: 0;   /* allow shrinking inside fixed tracks */
+  min-height: 0;  /* allow shrinking inside fixed tracks */
+  overflow: hidden; /* clip any spill */
+  /* optional if you have absolutely positioned children: */
+  position: relative;
+}
+
+#playView {
+    background-image: url('images/rooms/MCRoom.jpg');
+    background-size: 825px 425px;
+    grid-area: playView;
+}
+
+.hide {
+    display: none;
+    pointer-events: none;
+}
+
+.deleted {
+    display: none;
+    pointer-events: none;
+}
+
+.clickables {
+    pointer-events: auto; 
+}
+
+.disabled {
+    pointer-events: none; 
+}
+#moveUp {
+    z-index: 99;
+    width: 40px;
+    position: fixed;
+    top: 3%;
+    left: 37%;   
+}
+
+#moveRight, #moveRightB1 {
+    z-index: 98;
+    transform: rotate(90deg);
+    width: 40px;
+    position: fixed;
+    top: 34%;
+    left: 71%;  
+}
+
+#moveDown {
+    z-index: 97;
+    transform: rotate(180deg);
+    width: 40px;
+    position: fixed;
+    top: 62%;
+    left: 37%;
+}
+
+#moveLeft {
+    z-index: 96;
+    transform: rotate(270deg);
+    width: 40px;
+    position: fixed;
+    top: 34%;
+    left: 2%; 
+}
+
+#invBox {
+    background-color: rgba(255, 255, 255, 0.15);
+    grid-area: invBox;
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 10px;
+    padding: 10px;
+}
+
+#invBox p {
+    grid-column: 1 / 3;
+    font-family: "Grenze Gotisch", serif;
+    font-size:40px;
+    color:#e0e0e0;
+    margin-top: 0px;
+    margin-bottom: -10%;
+    text-align: center;
+}
+
+.invItems {
+    background-color: rgb(31, 31, 31);
+    width: 100px;
+    height: 100px;
+    margin:auto;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.filled {
+    background-color:black;
+    border: 2px solid rgb(17, 212, 82);
+    color: #CCFF00;
+    font-family: "Victor Mono", serif;
+    font-size:2.5vmin;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    margin:auto;
+    cursor: url('./images/cursors/curLook.svg'), auto;
+}
+
+#diaBox {
+    background-color: rgba(255, 255, 255, 0.05);
+    grid-area: diaBox;
+    border-top: 2px solid #e0e0e0;
+    padding: 10px 20px;
+    font-family: "Victor Mono", serif;
+    font-size:16px;
+    color:#e0e0e0;
+    z-index:200;
+}
+.diaEmphasis {
+    font-style:italic;
+    letter-spacing: 7px;
+}
+/* styling for general interacting*/
+#diaButton {
+    position:absolute;
+    left:755px;
+    bottom: 15px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border:1.5px solid #e0e0e0;
+    grid-area: dialogue;
+    padding: 5px 10px;
+    font-family: "Victor Mono", serif;
+    font-size:18px;
+    color:#CCFF00;
+    display:none;
+    z-index:201;
+}
+#diaButton:hover {
+    background-color: black;
+    border:2px solid #CCFF00;
+    color: #e0e0e0;
+}
+#diaButton:active
+{
+    background-color: #CCFF00;
+    border:2px solid black;
+    color:black;
+}
+.movement:hover {
+    cursor: none;
+}
+.itemFade {
+    opacity: 0.8;
+}
+.poi:hover {
+    cursor: url('./images/cursors/curLook.svg'), auto;}
+.characters:hover {
+    cursor: url('./images/cursors/curTalk.svg'), auto;}
+.items:hover {
+    cursor: url('./images/cursors/curGrab.svg'), auto;}
+.clickables:hover {
+    cursor: url('./images/cursors/curLook.svg'), auto;}

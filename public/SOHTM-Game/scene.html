@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scene 1</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@100..900&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css2?family=Eater&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Victor+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="global.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        #MCMirrorPic {
+            position: absolute;
+            top: 0px;
+            left: 90px;
+        }
+    </style>
+</head>
+<body>
+    <div id="uiCont">
+        <div id="playView">
+            <img src="" id="MCMirrorPic" />
+            <div id="moveIcons">
+                <img class="hide" id="moveRightB1" src="images\cursors\curNav.svg" />
+                <img class="movement hide" id="moveUp" src="images\cursors\curNav.svg" />
+                <img class="movement" id="moveRight" src="images\cursors\curNav.svg" />
+                <img class="movement hide" id="moveDown" src="images\cursors\curNav.svg" />
+                <img class="movement hide" id="moveLeft" src="images\cursors\curNav.svg" />
+            </div>
+            <div id="mapMove">
+                <img style="position:absolute; top:85px; left:70px; width:700px;"
+                id="newspaperHand" src="images\newspaperHold.png">
+                <img style="position:absolute; top:62px; left:280px; width:280px;"
+                class="characters hide" id="charCapn" src="images/characters/Capn.png">
+                <img style="z-index:7; position:absolute; top:-86px; left:400px; width:330px;"
+                class="characters hide" id="charHugh" src="images/characters/Hugh.png">
+                <img style="z-index:7; position:absolute; top:-86px; left:400px; width:330px;"
+                class="characters hide" id="charHugh2" src="images/characters/Hugh.png">
+                <img style="position:absolute; top:-99px; left:20px; width:340px;"
+                class="characters hide" id="charMads" src="images/characters/Mads.png">
+                <img style="position:absolute; top:-104px; left:320px; width:340px;"
+                class="characters hide" id="charSci" src="images/characters/Scientist.png">
+                <img style="z-index:7; position:absolute; top:-90px; left:450px; width:330px;"
+                class="characters hide deleted" id="charPen" src="images/characters/Reporter.png">
+                <img style="z-index:7; position:absolute; top:-90px; left:150px; width:330px;"
+                class="characters hide deleted" id="charPen2" src="images/characters/Reporter.png">
+                <img style="position:absolute; top:62px; left:180px; width:280px;"
+                class="characters hide" id="charMon" src="images/characters/Mon1.png">
+                <img style="position:absolute; top:-206px; left:450px; width:420px;" class="characters hide"
+                    id="charEngineer" src="images/characters/Engineer.png">
+                <svg width="2000px" height="2000px">
+                    <rect id="endFade" width="2000" height="2000" fill="rgba(0,0,0, 0.0)" />
+                    <rect class="hide" id="roomFade" width="2000" height="2000" fill="rgba(0,0,0, .8)" />
+                    <rect class="clickables MCRoom" id="bed" x="500" y="50" width="350" height="400"
+                        fill="rgba(0,0,0,.0)" />
+                    <rect class="clickables MCRoom" id="mirror" x="350" y="20" width="140" height="250" fill="rgba(0,0,0,.0)" />
+                    <rect class="clickables MCHall hide" id="doorNum" x="125" y="20" width="60" height="40"
+                        fill="rgba(0,0,0,.0)" />
+                    <rect class="clickables MCHall hide" id="doorNum" x="640" y="15" width="60" height="40"
+                        fill="rgba(0,0,0,.0)" />
+                    <polygon class="clickables MCHall hide" id="carpet" points="377,230 444,230 750,800 100,800"
+                        fill="rgba(0,0,0,.0)" />
+                    <rect class="clickables elevatorB hide" id="elevatorB" x="290" y="120" width="240" height="700"
+                        fill="rgba(0,0,0,.0)" />
+                    <rect class="clickables elevator hide" id="elevator" x="290" y="120" width="240" height="700"
+                        fill="rgba(0,0,0,.0)" />
+                    <rect class="clickables floors inactive hide" id="floorB3" x="0" y="330" width="30" height="50"
+                        fill="rgba(0,0,0,.0)" />
+                    <rect class="clickables floors inactive hide" id="floorB2" x="45" y="245" width="50" height="50"
+                        fill="rgba(0,0,0,.0)" />
+                    <rect class="clickables floors inactive hide" id="floorB1" x="115" y="185" width="50" height="50"
+                        fill="rgba(0,0,0,.0)" />
+                    <rect class="clickables floors inactive hide" id="floor1" x="195" y="145" width="40" height="50"
+                        fill="rgba(0,0,0,.0)" />
+                    <rect class="clickables floors inactive hide" id="floor2" x="295" y="115" width="40" height="50"
+                        fill="rgba(0,0,0,.0)" />
+                    <rect class="clickables floors active current hide" id="floor3" x="395" y="110" width="40"
+                        height="50" fill="rgba(0,0,0,.0)" />
+                    <rect class="clickables floors active hide" id="floor4" x="495" y="115" width="40" height="50"
+                        fill="rgba(0,0,0,.0)" />
+                    <rect class="clickables Hall4 hide" id="floatLights" x="450" y="5" width="250" height="220"
+                        fill="rgba(0,0,0,.0)" />
+                    <rect class="clickables Dining4Left hide" id="Dine4Lamp" x="5" y="200" width="150" height="150"
+                        fill="rgba(0,0,0,.0)" />
+                    <rect class="clickables Dining4Left hide" id="Dine4Lamp" x="610" y="190" width="85" height="100"
+                        fill="rgba(0,0,0,.0)" />
+                    <rect class="clickables Dining4Right hide" id="Dine4Window" x="155" y="5" width="1005" height="240"
+                        fill="rgba(0,0,0,.0)" />
+                    <rect class="clickables Dining4Right hide" id="Dine4Lamp" x="690" y="130" width="135" height="150"
+                        fill="rgba(0,0,0,.0)" />
+                    <rect class="clickables Dining4Right hide deleted" id="brokenWall" x="555" y="243" width="45" height="120"
+                        fill="rgba(0,0,0,.0)" />
+                    <rect class="clickables Dining6Left hide" id="floatLights" x="80" y="10" width="75" height="100"
+                        fill="rgba(0,0,0,.0)" />
+                    <rect class="clickables Dining6Left hide" id="floatLights" x="315" y="10" width="75" height="100"
+                        fill="rgba(0,0,0,.0)" />
+                    <rect class="clickables floors inactive hide" id="floor5" x="595" y="145" width="40" height="50"
+                        fill="rgba(0,0,0,.0)" />
+                    <rect class="clickables floors inactive hide" id="floor6" x="680" y="195" width="40" height="50"
+                        fill="rgba(0,0,0,.0)" />
+                    <rect class="clickables floors active hide" id="floorO1" x="740" y="255" width="50" height="50"
+                        fill="rgba(0,0,0,.0)" />
+                    <polygon class="clickables HallO1 hide" id="largeFloat" points="90,0 500,0 500,350 200,350"
+                        fill="rgba(0,0,0,.0)" />
+                    <polygon class="clickables HallO1Out hide" id="bigSky" points="0,0 825,0 825,280 200,240 0,260"
+                        fill="rgba(0,0,0,.0)" />
+                    <rect class="clickables HallO1Out hide" id="umbrella" x="600" y="95" width="240" height="240"
+                        fill="rgba(0,0,0,.0)" />
+                    <rect class="clickables HallO1Out hide" id="umbrella" x="110" y="125" width="180" height="170"
+                        fill="rgba(0,0,0,.0)" />
+                    <polygon class="clickables HallO1Out hide" id="poolSeat" points="15,250 230,300 90,430 0,410"
+                        fill="rgba(0,0,0,.0)" />
+                    <polygon class="clickables HallO1Out hide" id="poolSeat" points="300,270 500,320 390,430 250,400"
+                        fill="rgba(0,0,0,.0)" />
+                    <polygon class="clickables HallO1Out hide" id="poolSeat" points="580,290 800,340 690,430 550,410"
+                        fill="rgba(0,0,0,.0)" />
+                    <rect class="clickables floors inactive hide" id="floorO2" x="790" y="325" width="50" height="50"
+                        fill="rgba(0,0,0,.0)" />
+                </svg>
+            <img style="position:absolute; top:280px; left:25px; width:150px;"
+            class="clickables MCRoom hide" id="newspaper" src="images/objects/newspaper.png">
+            <img style="z-index:5; position:absolute; top:243px; left:550px; width:50px;"
+            class="items Dining4Right dining4Wall hide" id="paperScrap" src="images/rooms/Dining4RgtCover.jpg">
+            <img style="position:absolute; top:300px; left:150px; width:90px;transform: rotate(-15deg);"
+            class="items hide" id="crowbar" src="images/objects/crowbar.png">
+            </div>
+        </div>
+        <div id="invBox">
+            <p>Inventory</p>
+            <div class="invItems 1" id="1"></div>
+            <div class="invItems 2" id="2"></div>
+            <div class="invItems 3" id="3"></div>
+            <div class="invItems 4" id="4"></div>
+            <div class="invItems 5" id="5"></div>
+            <div class="invItems 6" id="6"></div>
+            <div class="invItems 7" id="7"></div>
+            <div class="invItems 8" id="8"></div>
+        </div>
+        <div id="diaBox"></div>
+        <!--keep diaButton out of diaBox;diaBox needs to be empty to load dialogue from-->
+        <button id="diaButton">>>></button>
+    </div>
+    <script src="/global.js"></script>
+    <script async src="/scene.js"></script>
+    <script>
+        //intro dialogue
+        window.onload = function () {
+            console.log("The Window onload is working!")
+            firstDia = "..._Well, that would be mighty impressive._...if I wasn’t stuck on the damn thing out in the middle of who knows where._ATTENTION ALL PASSENGERS...WE AGAIN APOLOGIZE FOR THE DELAY. FOR CLASS B AND UP, REFRESHMENTS ARE BEING OFFERED IN..._Fine. Might as well get some grub and see if anyone around here knows what the Hell’s going on...."
+            splitUp = firstDia.split("_");
+            var n = 0;
+            diaBox = document.getElementById('diaBox')
+            diaButton.style.display = "inline";
+            diaBox.innerHTML = splitUp[n];
+            $('#moveIcons').addClass("hide");
+            $("#diaButton").off("click");
+            $("#diaButton").click(function () {
+                n += 1;
+                if (splitUp[n] != undefined) {
+                    diaBox.classList.remove("diaEmphasis");
+                    diaBox.innerHTML = splitUp[n];
+                    if (n == 3) {
+                        const Sound = new Audio("assets/intercom.mp3");
+                        Sound.play();
+                        Sound.volume = .0;
+                        diaBox.classList.add("diaEmphasis");
+                        diaBox.innerHTML = splitUp[n]
+                    }
+                }
+                else {
+                    diaBox.innerHTML = "";
+                    diaButton.style.display = "none";
+                    $('#newspaperHand').addClass("hide");
+                    $('#moveIcons').removeClass("hide");
+                    $('#newspaper').removeClass("hide");
+                    n = 0;
+                }
+            })
+        }; 
+    </script>
+
+</html>

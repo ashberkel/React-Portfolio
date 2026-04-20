@@ -20,11 +20,19 @@ const [closing, setClosing] = useState(false);
       }}
     >
       <div className="popup" onClick={(e) => e.stopPropagation()}>
-        <p id="exit" onClick={handleClose}>CLOSE</p>
-        <h1>{data.h1Pop}</h1>
-        <h2>{data.h2Pop}</h2>
-        <p>{data.pPop}</p>
-      
+        <p id= "exit" onClick={handleClose}>CLOSE</p>
+        <div id= "colLeft">
+        <h2>The Big Question</h2>
+        <p>{data.pPop1}</p>
+        <h2>How I Thought About It</h2>
+        <p>{data.pPop2}</p>
+        <h2>The Answer</h2>
+        <p>{data.pPop3}</p>
+        <h2>Takeaways</h2>
+        <p>{data.pPop4}</p>
+        <a href={data.link} target="_blank">Click Here For Live Demo!</a>
+        </div>
+        <div id= "colRight"></div>
       </div>
       
     </div>

@@ -4,13 +4,38 @@
   100% { transform: scale(1) translateY(0); }
 }
 
-h1 {
-  animation: popIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+.eyeP {
+opacity: 70%;
+}
+.eyeP:hover {
+opacity:110%;
 }
 
-p {
-  position: absolute;
-  top: 14%;
+
+#colRight {
+ background-color: yellow; 
+}
+
+#details h2{
+  width: 40%;
+  text-align: left;
+  line-height: 95%;
+}
+
+#details p{
+  width: 30%;
+  padding-top: -30%;
+  text-align: left;
+  line-height: 125%;
+}
+
+h1 {
+  animation: popIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  color: white;
+}
+
+#h1P:hover {
+  color: rgb(255, 203, 80);
 }
 
 .galNav {
@@ -18,7 +43,7 @@ p {
   position: absolute;
   top: 45%;
   left: 70%;
-  width: 7%;
+  width: 75px;
   color:white;
 }
 

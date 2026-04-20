@@ -1,11 +1,11 @@
 #eyeball {
   position: absolute;
-  top: 8%;
-  left: 37.3%; /* fill the container’s width */
-  height: auto;  /* keep aspect ratio based on viewBox */
-  max-height: 90%; /* optional: don’t grow bigger than original */
-  opacity: 70%;
-  z-index: -1;
+  top: 60%;
+  left: 75%;
+  transform: translate(-75%, -55%);
+  height: 100%;
+  opacity: 65%;
+  z-index: -2;
   transform-box: fill-box;
   transform-origin: center;
   transition: transform 0.08s linear;
