@@ -11,9 +11,10 @@ export default function AppMobile() {
   
   return (
     <main>
-        <img id="hamburger" src="src/assets/Hamburger.svg" />
-      <header id="top-left"><h2>AshLee Berkel</h2><h1 className="wobbleText">DESIGNER <span id="smaller">&</span><br />DEVELOPER .</h1></header>
-      <Eyeball variant="home" />
+      <div id="topHeader"><img id="hamburger" src="src/assets/Hamburger.svg" />
+      <header><h1 className="wobbleText">DESIGNER <span id="smaller">&</span><br />DEVELOPER .</h1></header></div>
+      <h2>Hi, I'm AshLee.</h2>
+      <p>Just a heads up! My desktop website is pretty cool too and has fun elements I didn't want to clutter on the smaller screen. Be sure to check that version out too!</p><Eyeball variant="home" />
     </main>
   );
 }
