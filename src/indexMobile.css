@@ -11,6 +11,7 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 3s ease;
 }
 
 ::selection {
@@ -24,6 +25,34 @@
   color: var(--accent);
 }
 
+html, body {
+  height: 100%;
+  overflow: hidden; /* lock the outer scroll */
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  height: 100vh;
+}
+.scrollable {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 2%,
+    black 100%
+  );
+    -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 2%,
+    black 100%
+  );
+}
+
 .App{
 border: 2px solid white;
 height: 94vh;
@@ -35,10 +64,6 @@ transform: translate(-50%, -50%);
 padding: .5vmax;
 }
 
-body {
-overflow: hidden;
-}
-
 header {
   float:right;
   padding-right:10px;
@@ -46,12 +71,20 @@ header {
 
 #hamburger {
   float:left;
-  padding-top: 5px;
-  padding-left: 5px;
+  padding-top: 2%;
+  padding-left: 2%;
 }
 
 #topHeader {
-  display: block;
+  position: sticky;
+  top: 1vh;
+  z-index: 100;
+}
+
+.spanAll {
+  background-color: white;
+  color: var(--accent);
+  font-weight: 800;
 }
 
 a {
@@ -71,43 +104,57 @@ a {
   margin: 0 2%;
 
 }
-h1 {
+.h1Mobile {
   font-family: "Ranchers", sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 20vmin;
-  text-align: left;
+  font-size: 8vh;
+  text-align: right;
   text-transform: uppercase;
   letter-spacing: -.04em;
   line-height: .6em;
-  margin-top: 3vmin;
-  margin-bottom: 2vmin;
+  padding-top: 2%;
+  padding-right: 2%;
 }
 
-h2 {
+.h2Mobile {
   font-family: "Jersey 20", sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 8vmin;
-  text-align: left;
+  font-size: 14vh;
+  text-align: center;
   letter-spacing: -.04em;
-  line-height: .2em;
-  margin-top: 3.5vmin;
+  line-height: .6em;
+  margin-top: 10vh;
   margin-bottom: 1vmin;
 }
 
-p {
+.pMobile {
   font-family: "Inclusive Sans", sans-serif;
-  font-size: 1.3em;
+  font-size: 1.7em;
   text-align: center;
-  line-height: 1.2em;
-  margin-top: 3.5vmin;
+  line-height: 1.3em;
+  margin-top: 4vh;
+  padding: 2% 5%;
 }
 
 #smaller{
   font-size: .5em;
 }
 
-Eyeball {
-  size: 50%;
+#eyeDiv {
+  width: 200px;
+}
+
+.skillsContainer p {
+  text-align: center;
+  font-family: "Jersey 20", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 12vmin;
+  text-transform: uppercase;
+  letter-spacing: -.04em;
+  line-height: 1em;
+  margin-top: 3vmin;
+  margin-bottom: 2vmin;
 }

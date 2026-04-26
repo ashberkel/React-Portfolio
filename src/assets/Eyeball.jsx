@@ -61,7 +61,7 @@ function handleMove(e) {
         <svg
           ref={wrapperRef}
           id="eyeball"
-          viewBox="0 0 600 600"
+          viewBox="0 -3 380 549"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >

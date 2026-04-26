@@ -21,7 +21,7 @@ export default function AppFull() {
       <nav id="top-right">
           <Link onClick={() => setAccent("#000000")} to="/">Home</Link>|
           <Link onClick={() => setAccent("#3c16d4")} to="/projects">Projects</Link>|
-          <Link onClick={() => setAccent("#2ea477ff")} to="/skills">Skills</Link>|
+          <Link onClick={() => setAccent("#2ea477")} to="/skills">Skills</Link>|
           <Link onClick={() => setAccent("#e71075")} to="/about">About</Link>
       </nav>
       <nav id="bottom-right">

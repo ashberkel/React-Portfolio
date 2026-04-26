@@ -4,11 +4,6 @@
   100% { transform: scale(1) translateY(0); }
 }
 #aboutEye {
-  position: absolute;
-  top: 55%;
-  left: 75%;
-  transform: translate(-75%, -55%);
-  height: 100%;
   opacity: 70%;
 }
 
@@ -17,10 +12,10 @@ h1 {
 }
 
 .pTyped {
-  position:relative;
-  margin-top: 20%;
-  margin-left: -63%;
   color: var(--accent);
+  position: absolute;
+  left: 35.5vw;
+  top: 5.5vh;
 }
 
 .typeBox {
@@ -29,8 +24,9 @@ h1 {
 }
 
 .typeText {
-  font-size: 1.7em;
-  width: 400px;
+  font-size: 1.8em;
+  line-height: 130%;
+  width: 455px;
 }
 
 .caret {
