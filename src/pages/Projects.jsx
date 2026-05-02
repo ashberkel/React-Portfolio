@@ -9,7 +9,7 @@ export default function Projects() {
       imgT: "https://upload.wikimedia.org/wikipedia/commons/4/4d/Cat_November_2010-1a.jpg",
       h1Pop: "Title1", h2Pop: "Sub1", pPop: "This is Project 1"},
     { h1T: "WE ARE STILL HUMANZ", h2T: "WIP", pT: "When Did This Virtual Band Feel The Most Alive? Measuring phases of Gorillaz by visual cues, media presence, and immersion strategies.",
-      imgT: "https://hips.hearstapps.com/hmg-prod/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg",
+      imgT: "src/assets/GDB-image.jpg",
       h1Pop: "Title2", h2Pop: "Sub2", pPop: "This is Project 2"},
     { h1T: "Title3",
       h2T: "Sub3",

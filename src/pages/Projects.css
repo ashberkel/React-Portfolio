@@ -4,11 +4,17 @@
   100% { transform: scale(1) translateY(0); }
 }
 
-.eyeP {
-opacity: 70%;
+.details {
+  z-index: 2;
 }
-.eyeP:hover {
-opacity:110%;
+
+.eyeP #eyeball {
+  filter: grayscale(70%);
+  transition: filter 0.4s ease;
+}
+
+.eyeP:hover #eyeball {
+  filter: grayscale(0%);
 }
 
 

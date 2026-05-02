@@ -32,7 +32,7 @@ const [closing, setClosing] = useState(false);
         <p>{data.pPop4}</p>
         <a href={data.link} target="_blank">Click Here For Live Demo!</a>
         </div>
-        <div id= "colRight"></div>
+        <div id= "colRight"><img src={data.imgT} /></div>
       </div>
       
     </div>
