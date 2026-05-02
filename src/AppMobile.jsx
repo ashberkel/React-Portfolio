@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import Eyeball from "./assets/Eyeball";
-import SOTHMimg from "./assets/SOTHM-image.jpg";
+import SOTHM1 from "./assets/SOTHM1.jpg";
 import './indexMobile.css';
 
 export default function AppMobile() {
@@ -80,7 +80,7 @@ export default function AppMobile() {
           <mask id="svgmask1">
             <ellipse cx="220" cy="150" rx="200" ry="100" fill="#ffffff" />
           </mask>
-          <image href={SOTHMimg} width="600" height="400" mask="url(#svgmask1)" />
+          <image href={SOTHM1} width="600" height="400" mask="url(#svgmask1)" />
         </svg>
       </div>
     </main>

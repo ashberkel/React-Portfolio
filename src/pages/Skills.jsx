@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import "./Skills.css"
 import Eyeball from "../assets/Eyeball";
 
-export default function Skills() {
+export default function Skills({ setAccent }) {
 const [isActive, setIsActive] = useState(true);
 const frameRef = useRef(null);
 

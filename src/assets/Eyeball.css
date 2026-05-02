@@ -1,9 +1,8 @@
 #eyeball {
   position: absolute;
   top: 2%;
-  left: 33%;
+  left: 34.5%;
   height: 97%;
-  opacity: 65%;
   z-index: -2;
   transform-box: fill-box;
   transform-origin: center;

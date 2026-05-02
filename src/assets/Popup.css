@@ -2,24 +2,67 @@
     display: grid;
     grid-template-columns: 60% auto;
     position: fixed;
-    top: 5%;
+    top: 10%;
     left: -2%;
     z-index: 9999;
-    place-items: left;
+    place-items: start;
     background-color:rgb(6, 0, 41);
+    border: solid 5px white;
     box-shadow: 5px;
-    height: 600px;
-    width: 102%;
+    max-height: 75vh;
+    height: auto;
+    width: 104%;
     margin: auto;
-    padding: 25px;
-    overflow-y: scroll;
+    overflow: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background-color:var(--accent);
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(156, 136, 255);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff; 
+}
+
+#colLeft {
+    position: sticky;
+    overflow-y: scroll; /* only left column scrolls */
+    max-height: 75vh;
+    width: 100%;
+    padding-top: 10px;
+    margin-bottom: 5px;
+}
+
+#colLeft > * {
+    padding: 0 25px; /* apply padding to the content inside instead */
 }
 
 #colRight {
-    height: 106%;
-    margin-top: -5%;
+    position: sticky;
+    height: 75vh;      /* matches popup height */
     margin-right: -2%;
-    background-color:yellow;
+}
+
+.popup img {
+    width: 100%;
+    height: 110%;
+    object-fit: cover;
+    display: block;
+}
+
+.popup h1 {
+    font-size: 4em;
 }
 
 .fadeIn {
@@ -35,12 +78,13 @@
 
 .popup #exit {
     position: fixed;
-    top: 8px;
-    right: 2%;
+    top: 6.97%;
+    left: 55.7%;
     z-index: 110;
     background-color: var(--accent);
-    padding: 10px;
-    color: white;
+    padding: 9px;
+    background-color: white;
+    color: red;
     font-family: "Jersey 20", sans-serif;
     font-weight: 400;
     font-style: normal;
@@ -62,8 +106,8 @@
 }
 
 .popup #exit:hover {
-    background-color: white;
-    color: red;
+    background-color: red;
+    color: white
 }
 
 @keyframes fadeInAnim {

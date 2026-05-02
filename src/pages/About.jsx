@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./About.css"
 import Eyeball from "../assets/Eyeball";
 
-export default function About() {
+export default function About({ setAccent }) {
   
 let facts = ["I still have my wisdom teeth.", "I can't tie a cherry stem with my mouth.", "The Neverhood is my favorite childhood game.", "I was born in Misawa, Japan.", "I own a melodica."];
 const [factIndex] = useState(() => Math.floor(Math.random() * facts.length));
