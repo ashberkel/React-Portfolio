@@ -81,8 +81,9 @@ export default function Projects({ setAccent }) {
   }
 
   return (
-    <div>
+    <main>
       <h1 id="h1P" onClick={() => setShowPopup(true)} style={{ cursor: "zoom-in" }} key={index + "-h1"} className="fade">{galleryData[index].h1T}</h1>
+        <br />
         <div className="galNavigation">
         <h1 onClick={galPrev} className={`galNav ${animate ? "galNav--animate" : ""}`} id="galNavPrev">PREV</h1>
         <p>  |  </p>
@@ -104,6 +105,6 @@ export default function Projects({ setAccent }) {
         />
       )}
 
-    </div>
+    </main>
   );
 }
