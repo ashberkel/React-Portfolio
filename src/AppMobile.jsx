@@ -1,13 +1,16 @@
 import { useEffect, useState, useRef } from "react";
 import Eyeball from "./assets/Eyeball";
 import SOTHM1 from "./assets/SOTHM1.jpg";
+import GDB1 from "./assets/GDB1.jpg";
 import './indexMobile.css';
 
 export default function AppMobile() {
   const [accent, setAccent] = useState("#000000");
+  const [menuOpen, setMenuOpen] = useState(false);
   const triggerProj = useRef(null);
   const triggerSkills = useRef(null);
   const triggerAbout = useRef(null);
+  const triggerLinks = useRef(null);
 
   useEffect(() => {
     document.documentElement.style.setProperty("--accent", accent);
@@ -19,7 +22,7 @@ export default function AppMobile() {
         ([entry]) => {
           if (entry.isIntersecting) setAccent(colorIn);
         },
-        { threshold: 0.4 }
+        { threshold: 0.7 }
       );
       if (ref.current) observer.observe(ref.current);
       return observer;
@@ -27,22 +30,40 @@ export default function AppMobile() {
 
     const oPro = makeObserver(triggerProj, "#3c16d4");
     const oSkl = makeObserver(triggerSkills, "#2ea477");
-    const oAbt = makeObserver(triggerAbout, "#e71075");
+    const oAbt = makeObserver(triggerAbout, "#000000");
+    const oLnk = makeObserver(triggerLinks, "#e71075");
 
     return () => {
       oPro.disconnect();
       oSkl.disconnect();
       oAbt.disconnect();
+      oLnk.disconnect();
     };
   }, []);
 
   return (
     <main>
-      <div id="topHeader"><img id="hamburger" src="src/assets/Hamburger.svg" />
-        <h1 className="h1Mobile">DESIGNER <span id="smaller">&</span><br />DEVELOPER .</h1></div>
+      <div id="topHeader">
+        <img
+          id="hamburger"
+          src="src/assets/Hamburger.svg"
+          onClick={() => setMenuOpen(!menuOpen)}
+          style={{ cursor: 'pointer' }}
+        />
+
+        {menuOpen && (
+          <nav id="hamburgerMenu">
+            <a className="hamburgerA" href="#skills" onClick={() => { setMenuOpen(false); setAccent("#2ea477"); }}>Skills</a>
+            <a className="hamburgerA" href="#projects" onClick={() => { setMenuOpen(false); setAccent("#3c16d4"); }}>Projects</a>
+            <a className="hamburgerA" href="#links" onClick={() => { setMenuOpen(false); setAccent("#e71075"); }}>Links</a>
+          </nav>
+        )}
+      </div>
+      <h1 className="h1Mobile">DESIGNER <span id="smaller">&</span><br />DEVELOPER .</h1>
       <div className="scrollable">
-        <p className="pMobile spanAll">Just a heads up! My desktop website is pretty cool too and has fun elements I didn't want to clutter on the smaller screen. Be sure to check that version out too!</p>
+        <p className="pMobile spanAll">Just a heads up! My desktop website is pretty cool too and has fun elements I didn't want to clutter on the smaller screen. Be sure to check that version out!</p>
         <Eyeball variant="inline" />
+        <div id="about" />
         <h2 className="wobbleText h2Mobile">Hi, I'm AshLee.</h2>
         <div ref={triggerAbout} />
         <p className="pMobile">Ever since I could hold a pencil,
@@ -59,6 +80,7 @@ export default function AppMobile() {
           foods. If you also like
           over cool and impactful
           things, let's talk!</p>
+        <div id="skills" />
         <h2 className="wobbleText h2Mobile">What am I good at?</h2>
         <div ref={triggerSkills} />
         <div class="skillsContainer">
@@ -74,14 +96,32 @@ export default function AppMobile() {
           <p>UX Principles</p>
           <p>a11y Focused Design</p>
         </div>
+        <div id="projects" />
         <h2 className="wobbleText h2Mobile">Here are some<br />of my projects.</h2>
         <div ref={triggerProj} />
-        <svg width="600" height="400" xmlns="http://www.w3.org/2000/svg">
-          <mask id="svgmask1">
-            <ellipse cx="220" cy="150" rx="200" ry="100" fill="#ffffff" />
-          </mask>
-          <image href={SOTHM1} width="600" height="400" mask="url(#svgmask1)" />
-        </svg>
+        <div className="galDiv">
+          <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" className="galSVG" >
+            <mask id="maskSOTHM">
+              <circle cx="200" cy="200" r="195" fill="#ffffff" />
+            </mask>
+            <image href={SOTHM1} x="-150" y="-50" width="800" height="800" mask="url(#maskSOTHM)" />
+          </svg>
+          <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" className="galSVG" >
+            <mask id="maskGDB">
+              <circle cx="200" cy="200" r="195" fill="#ffffff" />
+            </mask>
+            <image href={GDB1} x="-340" y="-160" width="900" height="900" mask="url(#maskGDB)" />
+          </svg>
+        </div>
+        <div id="links" />
+        <h2 className="wobbleText h2Mobile">Want more? Here's some links!</h2>
+        <div ref={triggerLinks} />
+        <div className="linksContainer">
+          <a className="aMobile" href="https://www.linkedin.com/in/ashleeberkel" target="_blank">LinkedIn</a><br />
+          <a className="aMobile" href="https://bsky.app/profile/abcreates.bsky.social" target="_blank"> Bluesky</a><br />
+          <a className="aMobile" href="https://github.com/ashberkel" target="_blank"> GitHub</a><br />
+          <a className="aMobile" href="mailto:ashberkel@gmail.com">Email</a><br />
+        </div>
       </div>
     </main>
   );

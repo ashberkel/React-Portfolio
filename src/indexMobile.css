@@ -14,9 +14,36 @@
   transition: background-color 3s ease;
 }
 
-::selection {
-  background-color: white; 
-  color: var(--accent);
+.scrollable {
+  scrollbar-width: none; /* Firefox */
+}
+
+.scrollable::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+main {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.scrollable {
+  flex: 1; /* takes up all remaining space after h1 */
+  overflow-y: auto;
+  overflow-x: hidden;
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 2%,
+    black 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 2%,
+    black 100%
+  );
 }
 
 /* For older Firefox versions, the -moz- prefix is required */
@@ -34,23 +61,6 @@ html, body {
 
 main {
   height: 100vh;
-}
-.scrollable {
-  height: 100%;
-  overflow-y: auto;
-  overflow-x: hidden;
-  mask-image: linear-gradient(
-    to bottom,
-    transparent 0%,
-    black 2%,
-    black 100%
-  );
-    -webkit-mask-image: linear-gradient(
-    to bottom,
-    transparent 0%,
-    black 2%,
-    black 100%
-  );
 }
 
 .App{
@@ -70,15 +80,39 @@ header {
 }
 
 #hamburger {
-  float:left;
-  padding-top: 2%;
-  padding-left: 2%;
+  position: absolute;
+  top: 2.5vh;
+  right: 2vw;
+  width: 9vw;
+  z-index: 100;
 }
 
-#topHeader {
-  position: sticky;
-  top: 1vh;
-  z-index: 100;
+#hamburgerMenu {
+  position: absolute;
+  top: 1.2vh;
+  left: 3vw;
+  right: 14vw; /* stops it from going off the right edge */
+  background-color: white;
+  border: 5px solid var(--accent);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; /* wraps if too many links */
+  padding: 4px;
+  z-index: 999;
+  gap: 15px;
+  overflow: hidden;
+}
+
+.hamburgerA {
+  font-size: 2.5em;
+  color: var(--accent);
+  background: none;
+  transition: none;
+  text-decoration: none;
+}
+
+.hamburgerA:hover {
+  background: none;
 }
 
 .spanAll {
@@ -87,29 +121,47 @@ header {
   font-weight: 800;
 }
 
-a {
+.linksContainer, .galDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+}
+
+.galSVG {
+  width: 100vw;
+  height: 80vw;
+  display: block;
+  margin: auto;
+}
+
+.aMobile {
   font-family: "Jersey 20", sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 2em;
+  font-size: 4em;
   letter-spacing: .1em;
   text-transform: uppercase;
   text-decoration: none;
-  text-align: right;
-  color:white;
-  background: linear-gradient(to top, var(--accent) 50%, white 50%) bottom;
-  transition: background-color 0.5s ease-in-out;
-  background-size: 100% 300%;
-  transition: .25s ease-in;
-  margin: 0 2%;
-
+  text-align: center;
+  margin: 0;
+  background: white !important;
+  color: var(--accent) !important;
+  transition: none !important;
 }
+
+.aMobile:hover {
+  background: white !important;
+  color: var(--accent) !important;
+}
+
 .h1Mobile {
   font-family: "Ranchers", sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 8vh;
-  text-align: right;
+  font-size: 12vh;
+  text-align: left;
   text-transform: uppercase;
   letter-spacing: -.04em;
   line-height: .6em;
@@ -126,7 +178,7 @@ a {
   letter-spacing: -.04em;
   line-height: .6em;
   margin-top: 10vh;
-  margin-bottom: 1vmin;
+  margin-bottom: 10vmin;
 }
 
 .pMobile {
