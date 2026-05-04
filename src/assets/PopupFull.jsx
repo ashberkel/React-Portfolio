@@ -1,7 +1,7 @@
-import "./Popup.css";
+import "./PopupFull.css";
 import { useEffect, useState } from "react";
 
-export default function Popup({ data, onClose }) {
+export default function PopupFull({ data, onClose }) {
   const [closing, setClosing] = useState(false);
 
   useEffect(() => {

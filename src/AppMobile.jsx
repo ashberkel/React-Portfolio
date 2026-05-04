@@ -1,4 +1,6 @@
 import { useEffect, useState, useRef } from "react";
+import PopupMobile from "./assets/PopupMobile.jsx";
+import GalleryData from "./assets/GalleryData.js";
 import Eyeball from "./assets/Eyeball";
 import SOTHM1 from "./assets/SOTHM1.jpg";
 import GDB1 from "./assets/GDB1.jpg";
@@ -15,6 +17,9 @@ export default function AppMobile() {
   useEffect(() => {
     document.documentElement.style.setProperty("--accent", accent);
   }, [accent]);
+
+  const [showPopup, setShowPopup] = useState(false);
+  const [index, setIndex] = useState(0);
 
   useEffect(() => {
     const makeObserver = (ref, colorIn, colorOut) => {
@@ -100,13 +105,13 @@ export default function AppMobile() {
         <h2 className="wobbleText h2Mobile">Here are some<br />of my projects.</h2>
         <div ref={triggerProj} />
         <div className="galDiv">
-          <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" className="galSVG" >
+          <svg onClick={() => { setIndex(3); setShowPopup(true); }} viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" className="galSVG" >
             <mask id="maskSOTHM">
               <circle cx="200" cy="200" r="195" fill="#ffffff" />
             </mask>
             <image href={SOTHM1} x="-150" y="-50" width="800" height="800" mask="url(#maskSOTHM)" />
           </svg>
-          <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" className="galSVG" >
+          <svg onClick={() => { setIndex(1); setShowPopup(true); }} viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" className="galSVG" >
             <mask id="maskGDB">
               <circle cx="200" cy="200" r="195" fill="#ffffff" />
             </mask>
@@ -123,6 +128,12 @@ export default function AppMobile() {
           <a className="aMobile" href="mailto:ashberkel@gmail.com">Email</a><br />
         </div>
       </div>
+            {showPopup && (
+        <PopupMobile
+          data={GalleryData[index]}
+          onClose={() => setShowPopup(false)}
+        />
+      )}
     </main>
   );
 }
