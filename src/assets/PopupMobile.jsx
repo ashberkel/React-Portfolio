@@ -19,9 +19,9 @@ export default function PopupMobile({ data, onClose }) {
         if (closing) onClose();
       }}
     >
-      <div className="popup" onClick={(e) => e.stopPropagation()}>
+      <div className="popupMobile" onClick={(e) => e.stopPropagation()}>
+        <div id="divMobile"><img src={data.img2} /><br />
         <p id="exit" onClick={handleClose}>CLOSE</p>
-        <div id="colLeft">
           <a id="demo" href={data.link} target="_blank">Click Here For Live Demo!</a>
           <h2>The Big Question</h2>
           <p>{data.pPop1}</p>
@@ -32,7 +32,6 @@ export default function PopupMobile({ data, onClose }) {
           <h2>Takeaways</h2>
           <p>{data.pPop4}</p>
         </div>
-        <div id="colRight"><img src={data.img2} /></div>
       </div>
 
     </div>

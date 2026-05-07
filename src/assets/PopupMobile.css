@@ -1,85 +1,76 @@
-.popup {
-    display: grid;
-    grid-template-columns: 60% auto;
+.popupMobile {
     position: fixed;
-    top: 10%;
-    left: -2%;
+    top: 20vh;
+    left: 0;
+    width: 100%;
+    height: 60%;
     z-index: 9999;
-    place-items: start;
-    background-color:rgb(0, 0, 0)
+    background-color: rgb(0, 0, 0);
     border: solid 5px white;
-    box-shadow: 5px;
-    max-height: 75vh;
-    height: auto;
-    width: 104%;
-    margin: auto;
     overflow: hidden;
+    box-sizing: border-box;
+    /* border no longer adds extra width */
+}
+
+#divMobile {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+#divMobile img {
+    width: 100%;
+    height: 60%;
+    object-fit: cover;
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
+    width: 10px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background-color:var(--accent);
+    background-color: var(--accent);
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgb(156, 136, 255);
+    background: rgb(156, 136, 255);
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #ffffff; 
+    background: #ffffff;
 }
 
-#colLeft {
-    position: sticky;
-    overflow-y: scroll; /* only left column scrolls */
-    max-height: 75vh;
-    width: 100%;
-    padding-top: 10px;
-    margin-bottom: 5px;
+#colTop>* {
+    padding: 0 25px;
+    /* apply padding to the content inside instead */
 }
 
-#colLeft > * {
-    padding: 0 25px; /* apply padding to the content inside instead */
-}
-
-#colRight {
-    position: sticky;
-    height: 75vh;      /* matches popup height */
-    margin-right: -2%;
-}
-
-.popup img {
-    width: 100%;
-    height: 110%;
-    object-fit: cover;
-    display: block;
-}
-
-.popup h1 {
+.popupMobile h1 {
     font-size: 4em;
 }
 
 .fadeIn {
     opacity: 1;
-	animation: fadeInAnim .3s 1 ease-in;
+    animation: fadeInAnim .3s 1 ease-in;
 }
 
 .fadeOut {
-    opacity:0;
+    opacity: 0;
     animation: fadeOutAnim .3s 1 ease-out;
     pointer-events: none;
 }
 
-.popup #exit {
+#demo{
+    margin: 0;
+}
+
+.popupMobile #exit {
     position: fixed;
-    top: 6.97%;
-    left: 55.7%;
+    top: 11.8vh;
+    right: 0;
     z-index: 110;
     background-color: var(--accent);
     padding: 9px;
@@ -91,39 +82,46 @@
     font-size: 1.6em;
 }
 
-.popup a {
-    color:#a593ff;
+.popupMobile a {
+    color: #a593ff;
     font-size: 3em;
     letter-spacing: .05ch;
 }
-    .popup h2 {
+
+.popupMobile h2 {
     color: #a593ff;
+    font-size: 6em;
+    line-height: 60%;
+    padding-bottom: 16px;
 }
 
-    .popup p {
+.popupMobile p {
     text-align: left;
+    font-size: 2em;
     padding-right: 20px;
 }
 
-.popup #exit:hover {
+.popupMobile #exit:hover {
     background-color: red;
     color: white
 }
 
 @keyframes fadeInAnim {
-	0% {
-		opacity: 0;
-	}
-	100% {
-		opacity: 1;
-	}
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 @keyframes fadeOutAnim {
-	0% {
-		opacity: 1;
-	}
-	100% {
-		opacity: 0;
-	}
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }
